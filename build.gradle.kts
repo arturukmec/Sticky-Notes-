@@ -27,7 +27,7 @@ tasks {
     }
     patchPluginXml {
         sinceBuild.set("232")
-        untilBuild.set("241.*")
+        untilBuild.set("")
     }
     signPlugin {
         certificateChain.set(System.getenv("CERTIFICATE_CHAIN"))
