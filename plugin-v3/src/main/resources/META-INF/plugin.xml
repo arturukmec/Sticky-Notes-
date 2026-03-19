@@ -1,0 +1,28 @@
+<idea-plugin>
+    <id>com.stickynotes.plugin</id>
+    <n>Sticky Notes</n>
+    <version>3.0</version>
+    <vendor>you</vendor>
+    <description>Sticky notes panel attached to code regions.</description>
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <projectService serviceImplementation="com.stickynotes.StickyNoteStorage"/>
+        <projectService serviceImplementation="com.stickynotes.StickyNotePanel"/>
+        <editorFactoryListener implementation="com.stickynotes.StickyNoteEditorListener"/>
+        <toolWindow id="Sticky Notes"
+                    anchor="right"
+                    factoryClass="com.stickynotes.StickyNoteToolWindowFactory"
+                    icon="/icons/note.svg"/>
+    </extensions>
+
+    <actions>
+        <action id="StickyNotes.Attach"
+                class="com.stickynotes.AttachNoteAction"
+                text="New Sticky Note"
+                description="Attach sticky note to selected code">
+            <keyboard-shortcut keymap="$default" first-keystroke="alt N"/>
+            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+        </action>
+    </actions>
+</idea-plugin>
