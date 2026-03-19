@@ -1,0 +1,32 @@
+<idea-plugin>
+    <id>com.stickynotes.plugin</id>
+    <name>Sticky Notes</name>
+    <version>1.0</version>
+    <vendor>you</vendor>
+    <description>Attach sticky notes to code selections. Copy note + code with one button.</description>
+
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <projectService serviceImplementation="com.stickynotes.StickyNoteStorage"/>
+        <editorFactoryListener implementation="com.stickynotes.StickyNoteEditorListener"/>
+    </extensions>
+
+    <actions>
+        <action id="StickyNotes.Attach"
+                class="com.stickynotes.AttachNoteAction"
+                text="Attach Sticky Note"
+                description="Attach a note to selected code"
+                icon="/icons/note.svg">
+            <keyboard-shortcut keymap="$default" first-keystroke="alt N"/>
+            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+        </action>
+        <action id="StickyNotes.CopyWithNote"
+                class="com.stickynotes.CopyWithNoteAction"
+                text="Copy Code + Note"
+                description="Copy selected code with its sticky note">
+            <keyboard-shortcut keymap="$default" first-keystroke="alt C"/>
+            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+        </action>
+    </actions>
+</idea-plugin>
