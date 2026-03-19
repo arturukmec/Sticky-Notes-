@@ -20,7 +20,7 @@ class StickyNoteGutterRenderer(
 
     override fun isNavigateAction() = true
 
-    override fun getClickAction() = com.intellij.openapi.actionSystem.AnAction.EMPTY_ACTION
+    override fun getClickAction() = null
 
     override fun equals(other: Any?) = other is StickyNoteGutterRenderer && other.note.id == note.id
     override fun hashCode() = note.id.hashCode()
